@@ -1,3 +1,7 @@
+# 在此粘贴你的 timeline.yaml...
+# 或拖拽文件到编辑器区域
+# 或点击右上角"加载官网最新配置"
+
 # ═══════════════════════════════════════════════════════════════
 #                   TrendRadar 时间线配置
 #                      Version: 1.0.0
@@ -433,7 +437,7 @@ custom:
     deep_quiet:
       name: "深夜静默"
       start: "23:00"
-      end: "06:00"                 # 23:00 → 次日 06:00（跨日时间段）
+      end: "07:00"                 # 23:00 → 次日 06:00（跨日时间段）
       collect: true                # 夜间继续采集数据
       analyze: true                # 夜间可以跑 AI 分析（反正不推送）
       push: false                  # 深夜不推送，避免打扰
@@ -472,9 +476,17 @@ custom:
   # 你可以定义多个日计划（如 workday 和 weekend），
   # 然后在第 3 步的 week_map 中分配给不同的星期。
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    workday_noon:
+      name: "工作日午间"
+      start: "11:30"
+      end: "13:00"
+      collect: true
+      analyze: false
+      push: true
+      report_mode: current
   day_plans:
     workday:                       # 工作日计划
-      periods: ["deep_quiet", "weekday_morning", "evening_summary"]
+      periods: [deep_quiet, weekday_morning, workday_noon, evening_summary]
     weekend:                       # 周末计划（用 weekend_morning 替换 weekday_morning）
       periods: ["deep_quiet", "weekend_morning", "evening_summary"]
 
