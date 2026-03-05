@@ -447,7 +447,7 @@ custom:
       start: "08:00"
       end: "10:00"                 # 跨度 2h，留足触发裕量
       push: true                   # 早上推送一次
-      report_mode: "incremental"   # 只推新增内容
+      report_mode: "current"   # 只推新增内容
       # once 继承 default（push: true）→ 窗口内只推一次
 
     weekend_morning:
@@ -455,7 +455,7 @@ custom:
       start: "10:00"
       end: "12:00"                 # 跨度 2h
       push: true
-      report_mode: "daily"         # 周末看全天汇总
+      report_mode: "current"         # 周末看全天汇总
       # once 继承 default（push: true）→ 窗口内只推一次
 
     evening_summary:
@@ -481,9 +481,8 @@ custom:
       start: "11:30"
       end: "13:00"
       collect: true
-      analyze: false
       push: true
-      report_mode: current
+      report_mode: "current"
   day_plans:
     workday:                       # 工作日计划
       periods: [deep_quiet, weekday_morning, workday_noon, evening_summary]
